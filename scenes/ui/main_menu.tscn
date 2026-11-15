@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://s_main_menu"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_script"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.07, 0.1, 1)
+
+[node name="GridDecorTop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+color = Color(0.18, 0.8, 0.7, 0.8)
+
+[node name="GridDecorBottom" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.18, 0.8, 0.7, 0.8)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 28
+text = "R  E  B  O  U  N  D"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 11
+text = "THE LAST EXPERIMENT // TACTICAL RICOCHET PROTOCOL"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(240, 34)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "[ DEPLOY MISSION ]"
+
+[node name="GuidanceButton" type="Button" parent="CenterContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(240, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "[ TACTICAL GUIDANCE (G) ]"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(240, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "[ ABORT / EXIT ]"
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -24.0
+offset_right = -12.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4, 0.5, 0.6, 0.8)
+theme_override_font_sizes/font_size = 9
+text = "CONTAINMENT OS v4.7.2"
+horizontal_alignment = 2
+
+[node name="GuidanceModal" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="GuidanceModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.04, 0.07, 0.92)
+
+[node name="Panel" type="PanelContainer" parent="GuidanceModal"]
+custom_minimum_size = Vector2(580, 310)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -155.0
+offset_right = 290.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GuidanceModal/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GuidanceModal/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GuidanceHeader" type="Label" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "[ OPERATIONAL DIRECTIVE & TACTICAL GUIDANCE ]"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ContentVBox" type="VBoxContainer" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="ObjectiveLabel" type="RichTextLabel" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer/ScrollContainer/ContentVBox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#33e0cc][b]MISSION OBJECTIVE:[/b][/color]
+Bio-weapons containment has failed in Sector 1. Purge all mutant specimens to secure the facility and unlock extraction."
+fit_content = true
+
+[node name="RicochetLabel" type="RichTextLabel" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer/ScrollContainer/ContentVBox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#33e0cc][b]KINETIC RICOCHET SYSTEM:[/b][/color]
+Mutated carapaces resist frontal ballistics. Bounce rounds off metallic bulkheads and walls using the holographic laser sight to strike weak points from around cover."
+fit_content = true
+
+[node name="ArsenalLabel" type="RichTextLabel" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer/ScrollContainer/ContentVBox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#33e0cc][b]TACTICAL WEAPON LOADOUT:[/b][/color]
+• [b][1] Laser Pulse Pistol:[/b] Rapid-fire precision laser bolt with high velocity.
+• [b][2] Security Ricochet Shotgun:[/b] 3-pellet kinetic spread; bounces into corridors.
+• [b][3] Heavy Plasma Cannon:[/b] High-yield 4-bounce cyan energy beam.
+• [b][4] Heavy Kinetic Vulcan:[/b] Suppressive auto-cannon with immense fire rate.
+• [b]Mouse Scroll Wheel:[/b] Seamlessly cycle through active weaponry."
+fit_content = true
+
+[node name="ControlsLabel" type="RichTextLabel" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer/ScrollContainer/ContentVBox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#33e0cc][b]OPERATIVE CONTROLS:[/b][/color]
+• [b]W / A / S / D:[/b] 8-Direction normalized tactical movement
+• [b]Mouse Aim:[/b] 360° Pivot aim rotation
+• [b]Space / Left Click:[/b] Fire equipped weapon
+• [b]R Key:[/b] Reload magazine / Retry sector upon completion or defeat
+• [b]H Key:[/b] Use Medical Kit (+40 HP restore)
+• [b]Escape:[/b] Pause game / Close briefing"
+fit_content = true
+
+[node name="CloseGuidanceButton" type="Button" parent="GuidanceModal/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "[ RETURN TO MENU ]"

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c1o2n3t4r5o6l"]
+
+[ext_resource type="Script" path="res://scripts/puzzles/control_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tiles/tile_metal.png" id="2_panel_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/items/fuse.png" id="3_fuse_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_panel"]
+radius = 28.0
+
+[node name="ControlPanel" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_panel_tex")
+
+[node name="FuseSocket" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_fuse_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_panel")

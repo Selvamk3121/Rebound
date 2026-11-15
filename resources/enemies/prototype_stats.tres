@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://e_proto04"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_stats.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+enemy_name = "Prototype Bio-Weapon"
+max_health = 320
+move_speed = 52.0
+damage = 30
+detection_radius = 320.0
+attack_range = 36.0
+attack_cooldown = 1.0
+armor_reduction = 0.25
+credit_reward = 100

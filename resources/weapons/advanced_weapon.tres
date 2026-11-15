@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://w3adv0003"]
+
+[ext_resource type="Script" path="res://scripts/combat/weapon_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/hud/hud_rifle_plasma.png" id="2_icon"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/particles/projectile_plasma.png" id="3_proj"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/particles/shot_plasma.png" id="4_flash"]
+
+[resource]
+script = ExtResource("1_script")
+weapon_name = "Heavy Plasma Cannon"
+weapon_type = 2
+damage = 45
+projectile_speed = 520.0
+max_bounces = 4
+upgrade_level = 4
+max_ammo = 6
+current_ammo = 6
+reserve_ammo = 24
+reload_time = 1.8
+fire_rate = 0.55
+preview_distance = 460.0
+projectile_lifetime = 4.0
+sprite_frame = 3
+muzzle_offset = Vector2(30, 6)
+icon_texture = ExtResource("2_icon")
+projectile_texture = ExtResource("3_proj")
+muzzle_flash_texture = ExtResource("4_flash")
+pellets = 1
+spread_angle = 0.0
+sfx_name = "laser_fire"

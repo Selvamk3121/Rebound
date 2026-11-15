@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://e_spitter_scn"]
+
+[ext_resource type="PackedScene" uid="uid://586s1pvfxgfi" path="res://scenes/enemies/enemy_base.tscn" id="1_base"]
+[ext_resource type="Resource" uid="uid://e_spitter05" path="res://resources/enemies/spitter_stats.tres" id="2_stats"]
+[ext_resource type="Texture2D" uid="uid://usp73r5ya4e3" path="res://assets/sprites/enemies/spitter.png" id="3_texture"]
+
+[node name="Spitter" instance=ExtResource("1_base")]
+stats = ExtResource("2_stats")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_texture")

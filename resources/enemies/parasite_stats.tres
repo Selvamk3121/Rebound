@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://e_parasite06"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_stats.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+enemy_name = "Void Parasite"
+max_health = 60
+move_speed = 85.0
+damage = 12
+detection_radius = 270.0
+attack_range = 24.0
+attack_cooldown = 0.45
+armor_reduction = 0.05
+credit_reward = 20

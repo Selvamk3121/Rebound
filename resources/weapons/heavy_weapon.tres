@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://w4hvy0004"]
+
+[ext_resource type="Script" path="res://scripts/combat/weapon_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/hud/hud_rifle.png" id="2_icon"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/particles/projectile_gun.png" id="3_proj"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/particles/shot_gun.png" id="4_flash"]
+
+[resource]
+script = ExtResource("1_script")
+weapon_name = "Heavy Kinetic Vulcan"
+weapon_type = 3
+damage = 32
+projectile_speed = 520.0
+max_bounces = 2
+upgrade_level = 3
+max_ammo = 24
+current_ammo = 24
+reserve_ammo = 72
+reload_time = 2.0
+fire_rate = 0.14
+preview_distance = 400.0
+projectile_lifetime = 3.0
+sprite_frame = 4
+muzzle_offset = Vector2(30, 6)
+icon_texture = ExtResource("2_icon")
+projectile_texture = ExtResource("3_proj")
+muzzle_flash_texture = ExtResource("4_flash")
+pellets = 1
+spread_angle = 0.04
+sfx_name = "ricochet"

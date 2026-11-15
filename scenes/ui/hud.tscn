@@ -1,0 +1,441 @@
+[gd_scene format=3 uid="uid://b2b6y0moqlnu"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_script"]
+
+[node name="HUD" type="CanvasLayer" groups=["hud"]]
+process_mode = 3
+script = ExtResource("1_script")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 280.0
+offset_bottom = 150.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "HP: 100 / 100"
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 8)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="EnergyLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.3, 0.9, 1.0, 1)
+text = "ENERGY: 100%"
+
+[node name="EnergyBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 6)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="WeaponHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="WeaponIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/WeaponHBox"]
+custom_minimum_size = Vector2(28, 14)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WeaponLabel" type="Label" parent="MarginContainer/VBoxContainer/WeaponHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "WEAPON: Laser Pulse Pistol"
+
+[node name="BounceLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "BOUNCES: 1 (Upgrade Lv.1)"
+
+[node name="AmmoLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "AMMO: 12 / 48"
+
+[node name="CreditsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "CREDITS: 0 CR"
+
+[node name="ThreatsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "HOSTILES: SCANNING..."
+
+[node name="ControlsHint" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = 110.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 9
+text = "Space / LMB: Fire | Shift: Sprint
+R: Reload | I: 8-Slot Inventory
+1, 2, 3, 4: Switch Weapon (Scroll)
+E: Interact / Open Door | H: Medkit"
+horizontal_alignment = 2
+
+[node name="NotificationLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 18.0
+offset_right = 250.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "NOTIFICATION"
+horizontal_alignment = 1
+
+[node name="RetryOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="RetryOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78)
+
+[node name="Panel" type="PanelContainer" parent="RetryOverlay"]
+custom_minimum_size = Vector2(340, 180)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -90.0
+offset_right = 170.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="RetryOverlay/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="StatusLabel" type="Label" parent="RetryOverlay/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "SECTOR PURGED"
+horizontal_alignment = 1
+
+[node name="DetailLabel" type="Label" parent="RetryOverlay/Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "All threats neutralized."
+horizontal_alignment = 1
+
+[node name="ButtonHBox" type="HBoxContainer" parent="RetryOverlay/Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="RetryOverlay/Panel/VBox/ButtonHBox"]
+custom_minimum_size = Vector2(140, 32)
+layout_mode = 2
+text = "RETRY [ R ]"
+
+[node name="SafeRoomButton" type="Button" parent="RetryOverlay/Panel/VBox/ButtonHBox"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+text = "ENTER SAFE ROOM"
+
+[node name="InventoryModal" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="InventoryModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.06, 0.08, 0.88)
+
+[node name="Panel" type="PanelContainer" parent="InventoryModal"]
+custom_minimum_size = Vector2(460, 260)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -130.0
+offset_right = 230.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="InventoryModal/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="InventoryModal/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="InventoryModal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "[ OPERATIVE TACTICAL RIG // 8-SLOT INVENTORY ]"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="InventoryModal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 4
+
+[node name="CombineBox" type="VBoxContainer" parent="InventoryModal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="CombineButton" type="Button" parent="InventoryModal/Panel/Margin/VBox/CombineBox"]
+custom_minimum_size = Vector2(340, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "[ COMBINE: 1x Gunpowder + 1x Scrap -> 12x Ammo ]"
+
+[node name="CombineStatus" type="Label" parent="InventoryModal/Panel/Margin/VBox/CombineBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Requires: 1x Gunpowder and 1x Scrap Metal"
+horizontal_alignment = 1
+
+[node name="CloseInventoryButton" type="Button" parent="InventoryModal/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(160, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "[ CLOSE RIG (I) ]"
+
+[node name="NoteModal" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="NoteModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.04, 0.06, 0.92)
+
+[node name="Panel" type="PanelContainer" parent="NoteModal"]
+custom_minimum_size = Vector2(480, 240)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -120.0
+offset_right = 240.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="NoteModal/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="NoteModal/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NoteTitle" type="Label" parent="NoteModal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.75, 0.3, 1)
+theme_override_font_sizes/font_size = 14
+text = "[ RESEARCH MEMORANDUM #402 ]"
+horizontal_alignment = 1
+
+[node name="NoteContent" type="RichTextLabel" parent="NoteModal/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+bbcode_enabled = true
+text = "Emergency Munitions Protocol."
+
+[node name="CloseNoteButton" type="Button" parent="NoteModal/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(160, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "[ DISMISS NOTE ]"
+
+[node name="ArmouryModal" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="ArmouryModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.05, 0.08, 0.92)
+
+[node name="Panel" type="PanelContainer" parent="ArmouryModal"]
+custom_minimum_size = Vector2(500, 270)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -135.0
+offset_right = 250.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="ArmouryModal/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="ArmouryModal/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="ArmouryModal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "[ ARMOURY BOX // WEAPON UPGRADE FABRICATOR ]"
+horizontal_alignment = 1
+
+[node name="ArmouryCredits" type="Label" parent="ArmouryModal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 12
+text = "AVAILABLE CREDITS: 0 CR"
+horizontal_alignment = 1
+
+[node name="UpgradesVBox" type="VBoxContainer" parent="ArmouryModal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="DmgRow" type="HBoxContainer" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox/DmgRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "Kinetic Core Power (+5 DMG)"
+
+[node name="DmgButton" type="Button" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox/DmgRow"]
+custom_minimum_size = Vector2(130, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "UPGRADE (35 CR)"
+
+[node name="BounceRow" type="HBoxContainer" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox/BounceRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "Ricochet Matrices (+1 Bounce)"
+
+[node name="BounceButton" type="Button" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox/BounceRow"]
+custom_minimum_size = Vector2(130, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "UPGRADE (50 CR)"
+
+[node name="MagRow" type="HBoxContainer" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox/MagRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "Magazine Feed (+4 Max Ammo)"
+
+[node name="MagButton" type="Button" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox/MagRow"]
+custom_minimum_size = Vector2(130, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "UPGRADE (30 CR)"
+
+[node name="ReloadRow" type="HBoxContainer" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox/ReloadRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "Rapid Cycle (-15% Reload Time)"
+
+[node name="ReloadButton" type="Button" parent="ArmouryModal/Panel/Margin/VBox/UpgradesVBox/ReloadRow"]
+custom_minimum_size = Vector2(130, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "UPGRADE (40 CR)"
+
+[node name="CloseArmouryButton" type="Button" parent="ArmouryModal/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(160, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "[ EXIT FABRICATOR ]"

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://xqvcwxwk4yc0"]
+
+[ext_resource type="Script" path="res://scripts/combat/trajectory_line.gd" id="1_script"]
+
+[node name="TrajectoryLine" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+width = 1.5
+default_color = Color(0.2, 0.85, 1, 0.6)
+begin_cap_mode = 2
+end_cap_mode = 2

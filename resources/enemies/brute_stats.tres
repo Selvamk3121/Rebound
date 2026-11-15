@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://e_brute02"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_stats.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+enemy_name = "Armored Brute"
+max_health = 180
+move_speed = 42.0
+damage = 25
+detection_radius = 200.0
+attack_range = 30.0
+attack_cooldown = 1.2
+armor_reduction = 0.4
+credit_reward = 35

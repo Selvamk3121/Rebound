@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://w1std0001"]
+
+[ext_resource type="Script" path="res://scripts/combat/weapon_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/hud/hud_pistol_laser.png" id="2_icon"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/particles/projectile_laser.png" id="3_proj"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/particles/shot_laser.png" id="4_flash"]
+
+[resource]
+script = ExtResource("1_script")
+weapon_name = "Laser Pulse Pistol"
+weapon_type = 0
+damage = 15
+projectile_speed = 620.0
+max_bounces = 1
+upgrade_level = 1
+max_ammo = 12
+current_ammo = 12
+reserve_ammo = 48
+reload_time = 1.0
+fire_rate = 0.20
+preview_distance = 250.0
+projectile_lifetime = 2.0
+sprite_frame = 1
+muzzle_offset = Vector2(18, 6)
+icon_texture = ExtResource("2_icon")
+projectile_texture = ExtResource("3_proj")
+muzzle_flash_texture = ExtResource("4_flash")
+pellets = 1
+spread_angle = 0.0
+sfx_name = "laser_fire"

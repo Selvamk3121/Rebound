@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://e_crawler01"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_stats.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+enemy_name = "Mutant Crawler"
+max_health = 55
+move_speed = 70.0
+damage = 8
+detection_radius = 260.0
+attack_range = 24.0
+attack_cooldown = 0.6
+armor_reduction = 0.0
+credit_reward = 10

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c6a8w5e3q2p1m"]
+
+[ext_resource type="Script" uid="uid://bax0qa1ae57s3" path="res://scripts/player/player.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cuixtanfx0u1u" path="res://assets/sprites/player/survivor character v4.2 spritesheet.png" id="2_lvxji"]
+[ext_resource type="Script" uid="uid://c8rdiu5w5bm43" path="res://scripts/combat/weapon_controller.gd" id="3_weapon_ctrl"]
+[ext_resource type="PackedScene" uid="uid://xqvcwxwk4yc0" path="res://scenes/weapons/trajectory_line.tscn" id="4_trajectory"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1"]
+radius = 11.18034
+
+[node name="Player" type="CharacterBody2D" unique_id=1856608158 groups=["player"]]
+collision_layer = 2
+collision_mask = 65
+motion_mode = 1
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=801040016]
+texture_filter = 1
+texture = ExtResource("2_lvxji")
+vframes = 5
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1349798484]
+position = Vector2(-8, 0)
+shape = SubResource("CircleShape2D_p1")
+
+[node name="WeaponPivot" type="Node2D" parent="." unique_id=389632754]
+
+[node name="Muzzle" type="Marker2D" parent="WeaponPivot" unique_id=1211906441]
+position = Vector2(24, 7)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="WeaponPivot/Muzzle" unique_id=987654321]
+visible = false
+texture_filter = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=172748348]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="TrajectoryLine" parent="." unique_id=1416391501 instance=ExtResource("4_trajectory")]
+position = Vector2(-1, -2)
+
+[node name="WeaponController" type="Node2D" parent="." unique_id=1403182592 node_paths=PackedStringArray("trajectory_line")]
+position = Vector2(-7, 0)
+script = ExtResource("3_weapon_ctrl")
+trajectory_line = NodePath("../TrajectoryLine")

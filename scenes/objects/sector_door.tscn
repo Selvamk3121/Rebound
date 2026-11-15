@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://s_sector_door_01"]
+
+[ext_resource type="Script" path="res://scripts/interaction/sector_door.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tiles/tile_door.png" id="2_texture"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trigger"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blocker"]
+size = Vector2(64, 64)
+
+[node name="SectorDoor" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_trigger")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="BlockerShape" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_blocker")
